@@ -5,8 +5,8 @@ header
     background: #577781;
     display:flex;
     justify-content:center;
-    height: 100px;
-    margin: 25px;
+    height: 25%;
+    margin: 2%;
     align-items: center;
     font-size: xx-large;
     font-family: Arial;
@@ -17,21 +17,14 @@ header
 
 {
     position: absolute;
-    left: 50px;
+    left: 3.5%;
 }
 
 .menu
 
 {
-    padding: 10px;
+    padding: 1%;
 }
-.bandeau
-{
-    display:flex;
-    justify-content:center;
-     align-items: center;
-}
-
 
 ul
 
@@ -40,4 +33,44 @@ ul
   margin: 0;
   padding: 0;
     text-align: center;
+}
+
+img
+
+{
+    border: 7px solid black;
+    margin: 4px;
+    width: 20%;
+	height: 20%;
+}
+
+#bandeau
+
+{
+     width: 90%;
+     border: 7px solid black;
+      display:flex;
+    justify-content:center;
+     align-items: center;
+}
+
+#img_bandeau
+
+{
+    width: 50%;
+    margin: 0;
+    border: none;
+    display:flex;
+    justify-content:center;
+     align-items: center;
+}
+
+#play_button
+
+{
+    width: 15%;
+    border: none;
+    position: relative;
+    left: 3.5%;
+    bottom: 3.5%;
 }
