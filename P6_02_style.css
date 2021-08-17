@@ -1,0 +1,29 @@
+body
+
+a
+{
+    color:white;
+    text-decoration:none;
+
+}
+
+header
+
+a
+{
+    color: white;
+}
+
+#header_container
+
+{
+    background: #577781;
+    display:flex;
+    justify-content:space-around;
+}
+
+#bandeau
+{
+    display:flex;
+    justify-content:space-around;
+}
