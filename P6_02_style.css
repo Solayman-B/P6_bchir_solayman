@@ -13,6 +13,16 @@ header
 
 }
 
+p
+{
+     position: absolute;
+    left: 8%;
+    bottom: 40%;
+    font-size: 250%;
+    background-color: white;
+
+}
+
 #logo
 
 {
@@ -47,11 +57,13 @@ img
 #bandeau
 
 {
-     width: 90%;
+     width: 95%;
      border: 7px solid black;
       display:flex;
     justify-content:center;
      align-items: center;
+    position: relative;
+    margin: auto;
 }
 
 #img_bandeau
@@ -70,7 +82,7 @@ img
 {
     width: 15%;
     border: none;
-    position: relative;
-    left: 3.5%;
-    bottom: 3.5%;
+    position: absolute;
+    left: 7%;
+    bottom: 25%;
 }
