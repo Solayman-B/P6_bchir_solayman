@@ -1,15 +1,5 @@
-body
-
-a
-{
-    color:white;
-    text-decoration:none;
-
-}
-
 header
 
-a
 {
     color: white;
 }
@@ -26,4 +16,12 @@ a
 {
     display:flex;
     justify-content:space-around;
+}
+
+#logo
+
+{
+    position: absolute;
+    top: 7px;
+    left: 13px;
 }
