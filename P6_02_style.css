@@ -45,9 +45,7 @@ ul
     text-align: center;
 }
 
-img
-
-{
+.1 + {
     border: 7px solid black;
     margin: 4px;
     width: 20%;
@@ -85,4 +83,35 @@ img
     position: absolute;
     left: 7%;
     bottom: 25%;
+}
+
+.previous
+{
+    width: 3%;
+}
+
+.next
+{
+    width: 3%;
+}
+
+.un, .deux, .trois, .quattre, .cinq, .six, .sept
+{
+    border: 7px solid black;
+    margin: 4px;
+    width: 20%;
+	height: 20%;
+}
+
+.cinq, .six, .sept
+{
+    #position: absolute;
+    #transition: transform .3s;
+    #transform: translateX(-500px);
+    #visibility: hidden;
+    display: none;
+}
+.carousel_1
+{
+    overflow: hidden;
 }
