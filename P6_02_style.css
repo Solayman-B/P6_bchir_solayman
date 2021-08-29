@@ -45,12 +45,6 @@ ul
     text-align: center;
 }
 
-.1 + {
-    border: 7px solid black;
-    margin: 4px;
-    width: 20%;
-	height: 20%;
-}
 
 #bandeau
 
@@ -95,7 +89,7 @@ ul
     width: 3%;
 }
 
-.un, .deux, .trois, .quattre, .cinq, .six, .sept
+img
 {
     border: 7px solid black;
     margin: 4px;
@@ -103,15 +97,11 @@ ul
 	height: 20%;
 }
 
-.cinq, .six, .sept
+.hide
 {
-    #position: absolute;
-    #transition: transform .3s;
-    #transform: translateX(-500px);
-    #visibility: hidden;
+    /*position: absolute;
+    transition: transform .3s;
+    transform: translateX(-500px);
+    visibility: hidden;*/
     display: none;
-}
-.carousel_1
-{
-    overflow: hidden;
 }

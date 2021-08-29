@@ -33,17 +33,25 @@ function doGetJSON()  {
     });
 
 }
-/* if clique next
-if i < 4
-i++;
-img i invisible
-img i+4 visible
-décale i+1 i+2 i+3 i+4 vers la gauche
 
-if clique previous
-if i > 0
-i--;
-img i visible
-img i+4 invisible
-décale i+1 i+2 i+3 i+4 vers la droite
- */
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById("next1").addEventListener("click", next);
+let i = 0
+function next() {
+    if (i < 3) {
+        console.log(i)
+    document.getElementsByClassName("display")[i].style.display = "none";
+    document.getElementsByClassName("hide")[i].style.display = "initial";
+    i++;
+}
+}
