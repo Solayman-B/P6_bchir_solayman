@@ -42,16 +42,29 @@ function doGetJSON()  {
 
 
 
+document.getElementById("previous1").addEventListener("click", previous1);
+document.getElementById("next1").addEventListener("click", next1);
+let i = -1
+function previous1() {
+    i--;
+    if (i > -3) {
+        console.log(i)
+    document.getElementsByClassName("display1")[i].style.display = "initial";
+    document.getElementsByClassName("hide1")[i].style.display = "none";
+}
+    else {
+        i = -2
+    }
+}
 
-
-
-document.getElementById("next1").addEventListener("click", next);
-let i = 0
-function next() {
+function next1() {
+    i++;
     if (i < 3) {
         console.log(i)
-    document.getElementsByClassName("display")[i].style.display = "none";
-    document.getElementsByClassName("hide")[i].style.display = "initial";
-    i++;
+    document.getElementsByClassName("display1")[i].style.display = "none";
+    document.getElementsByClassName("hide1")[i].style.display = "initial";
 }
+    else {
+        i = 3
+    }
 }
