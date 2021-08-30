@@ -1,47 +1,17 @@
-// A URL returns JSON data.
-var url = "http://localhost:8000/api/v1/titles/";
+// fetch
+let url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
 
+fetch(url).then(response => response.json()).then(json_response => {
+    best_movie_title.textContent = json_response.results[0].title
 
-function doGetJSON()  {
-
-  // Call fetch(url) with default options.
-  // It returns a Promise object:
-  var aPromise = fetch(url);
-
-  // Work with Promise object:
-  aPromise
-    .then(function(response) {
-        console.log("OK! Server returns a response object:");
-        console.log(response);
-
-        if(!response.ok) {
-           throw new Error("HTTP error, status = " + response.status);
-        }
-        // Get JSON Promise from response object:
-        var myJSON_promise = response.json();
-
-        // Returns a Promise object.
-        return myJSON_promise;
-    })
-    .then(function(myJSON) {
-        console.log("OK! JSON:");
-        console.log(myJSON);
-    })
-    .catch(function(error)  {
-        console.log("Noooooo! Something error:");
-        console.log(error);
-    });
-
-}
+})
 
 
 
 
 
 
-
-
-
+// carousel
 document.getElementById("previous1").addEventListener("click", previous1);
 document.getElementById("next1").addEventListener("click", next1);
 let i = -1
