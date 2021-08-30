@@ -61,7 +61,7 @@ ul
 #img_bandeau
 
 {
-    width: 50%;
+    height: 5%;
     margin: 0;
     border: none;
     display:flex;
@@ -89,19 +89,19 @@ ul
     width: 3%;
 }
 
-img
+.img_movie
 {
     border: 7px solid black;
     margin: 4px;
     width: 20%;
-	height: 20%;
+	height: 200px;
 }
 
-.hide1
+#a5, #a6, #a7
 {
-    /*position: absolute;
-    transition: transform .3s;
-    transform: translateX(-500px);
-    visibility: hidden;*/
+    border: 7px solid black;
+    margin: 4px;
+    width: 20%;
+	height: 200px;
     display: none;
 }
