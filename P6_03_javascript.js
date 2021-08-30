@@ -34,26 +34,31 @@ document.getElementById(stop).style.display = "initial";
 }
 
 function previous(x) {
-    i--;
-    if (i >= 0) {
-        toggle_display(x,i)
+
+    if (i >= 1) {
+        toggle_display(x, i)
+        i--;
     }
 }
 function next(x) {
-    i++;
-    if (i <= 3) {
+    if ( i < 3) {
+        i++;
+        console.log(i)
         toggle_display(x,i)
     }
+
 }
+
+
 const a = "a"
 const b = "b"
 const c = "c"
 const d = "d"
-document.getElementById("previous_a").addEventListener("click", previous(a));
-document.getElementById("next_a").addEventListener("click", next(a));
-document.getElementById("previous_b").addEventListener("click", previous(b));
-document.getElementById("next_b").addEventListener("click", next(b));
-document.getElementById("previous_c").addEventListener("click", previous(c));
-document.getElementById("next_c").addEventListener("click", next(c));
-document.getElementById("previous_d").addEventListener("click", previous(d));
-document.getElementById("next_d").addEventListener("click", next(d));
+document.getElementById("previous_a").addEventListener("click", () => previous(a));
+document.getElementById("next_a").addEventListener("click", () => next(a));
+document.getElementById("previous_b").addEventListener("click", () => previous(b));
+document.getElementById("next_b").addEventListener("click", () => next(b));
+document.getElementById("previous_c").addEventListener("click", () => previous(c));
+document.getElementById("next_c").addEventListener("click", () => next(c));
+document.getElementById("previous_d").addEventListener("click", () => previous(d));
+document.getElementById("next_d").addEventListener("click", () => next(d));
