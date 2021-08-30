@@ -6,7 +6,6 @@ fetch(url).then(response => response.json()).then(json_response => {
     bandeau_title.textContent = json_response.results[0].title
     img_bandeau.src = json_response.results[0].image_url
     a1.src = json_response.results[1].image_url
-    console.log(json_response.results[2].title)
     a2.src = json_response.results[2].image_url
     a3.src = json_response.results[3].image_url
     a4.src = json_response.results[4].image_url
@@ -20,12 +19,11 @@ fetch(url2).then(response => response.json()).then(json_response => {
 
 
 // carousel
-document.getElementById("previous1").addEventListener("click", previous1);
-document.getElementById("next1").addEventListener("click", next1);
 let i = 0
-function toggle_display(i) {
-    let start = "a" + i
-    let stop = "a" + (i + 4)
+function toggle_display(x,i) {
+    let start = x + i
+    console.log(i)
+    let stop = x + (i + 4)
     if (document.getElementById(start).style.display === "none") {
         document.getElementById(start).style.display = "initial";
         document.getElementById(stop).style.display = "none";
@@ -35,15 +33,27 @@ document.getElementById(stop).style.display = "initial";
     }
 }
 
-function previous1() {
+function previous(x) {
     i--;
     if (i >= 0) {
-        toggle_display(i)
+        toggle_display(x,i)
     }
 }
-function next1() {
+function next(x) {
     i++;
     if (i <= 3) {
-        toggle_display(i)
+        toggle_display(x,i)
     }
 }
+const a = "a"
+const b = "b"
+const c = "c"
+const d = "d"
+document.getElementById("previous_a").addEventListener("click", previous(a));
+document.getElementById("next_a").addEventListener("click", next(a));
+document.getElementById("previous_b").addEventListener("click", previous(b));
+document.getElementById("next_b").addEventListener("click", next(b));
+document.getElementById("previous_c").addEventListener("click", previous(c));
+document.getElementById("next_c").addEventListener("click", next(c));
+document.getElementById("previous_d").addEventListener("click", previous(d));
+document.getElementById("next_d").addEventListener("click", next(d));
