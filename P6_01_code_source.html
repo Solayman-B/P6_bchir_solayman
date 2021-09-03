@@ -3,26 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="P6_02_style.css" />
-    <link rel="shortcut icon" type="image/png" href="/ms-icon-150x150.png"/>
     <title>Acueil JustStreamIt</title>
 </head>
-<body>
-
     <header>
     <span id="logo">JustStreamIt</span>
     <span class="menu">Accueil</span>
     <span class="menu">Catégories</span>
     </header>
+<body>
+    <section id="banner">
+        <p id="banner_title">Titre du film</p>
+            <input type="image" id="play_button" alt="play"
+                   src="ressources/play_button.png">
+            <img id="img_banner" src="ressources/film.jpg/">
+    </section>
+    <section class="modal">
+        <section class="modal_content">
+            <ul>
+                <li id="banner_modal">
+                    <p>test de la modale</p>
+                </li>
+            </ul>
 
-    <section>
-        <ul>
-            <li>
-                <section id="bandeau">
-                    <p id="bandeau_title">Titre du film</p>
-                    <input type="image" id="play_button" alt="play"
-       src="ressources/play_button.png">
-                    <img id="img_bandeau" src="ressources/film.jpg/">
-                </section></li>
+    <span class="close">&times;</span>
+      <ul>
+          <li id="img_banner_modal">
+          </li>
+              <li id="title_banner_modal">
+          </li>
+      </ul>
+  </section>
+</li>
+</section>
             <li><h1> Films les mieux notés </h1></li>
             <li>
                 <div>
@@ -43,12 +55,10 @@
                              <input type="image" class="next" alt="next"
        src="ressources/suivant.png">
                     </span>
-
-
                 </div>
             </li>
             <li>
-                <h1> Catégorie 1 </h1>
+                <h1> Les meilleurs films d'action </h1>
             </li>
             <li>
 <div>
@@ -61,7 +71,7 @@
                           <img id="b2" class="img_movie" src="ressources/2.jpg/">
                           <img id="b3" class="img_movie" src="ressources/3.jpg/">
                           <img id="b4" class="img_movie" src="ressources/4.jpg/">
-                          <img id="b5" class = "hide" class="img_movie" src="ressources/5.jpg/">
+                          <img id="b5" class="hide" class="img_movie" src="ressources/5.jpg/">
                           <img id="b6" class="hide" class="img_movie" src="ressources/6.jpg/">
                           <img id="b7" class="hide" class="img_movie" src="ressources/7.jpg/">
                     </span>
@@ -69,11 +79,9 @@
                              <input type="image" class="next" alt="next"
        src="ressources/suivant.png">
                     </span>
-
-
                 </div>
             </li>
-           <li><h1> Catégorie 2 </h1></li>
+           <li><h1> Les meilleurs films dramatiques </h1></li>
              <li>
 <div>
                         <span id="previous_c">
@@ -85,7 +93,7 @@
                           <img id="c2" class="img_movie" src="ressources/2.jpg/">
                           <img id="c3" class="img_movie" src="ressources/3.jpg/">
                           <img id="c4" class="img_movie" src="ressources/4.jpg/">
-                          <img id="c5" class = "hide" class="img_movie" src="ressources/5.jpg/">
+                          <img id="c5" class="hide" class="img_movie" src="ressources/5.jpg/">
                           <img id="c6" class="hide" class="img_movie" src="ressources/6.jpg/">
                           <img id="c7" class="hide" class="img_movie" src="ressources/7.jpg/">
                     </span>
@@ -93,11 +101,9 @@
                              <input type="image" class="next" alt="next"
        src="ressources/suivant.png">
                     </span>
-
-
                 </div>
             </li>
-            <li><h1> Catégorie 3 </h1></li>
+            <li><h1> Les meilleurs films à voir en famille </h1></li>
             <li>
 <div>
                         <span id="previous_d">
@@ -109,7 +115,7 @@
                           <img id="d2" class="img_movie" src="ressources/2.jpg/">
                           <img id="d3" class="img_movie" src="ressources/3.jpg/">
                           <img id="d4" class="img_movie" src="ressources/4.jpg/">
-                          <img id="d5" class = "hide" class="img_movie" src="ressources/5.jpg/">
+                          <img id="d5" class="hide" class="img_movie" src="ressources/5.jpg/">
                           <img id="d6" class="hide" class="img_movie" src="ressources/6.jpg/">
                           <img id="d7" class="hide" class="img_movie" src="ressources/7.jpg/">
                     </span>
@@ -117,11 +123,8 @@
                              <input type="image" class="next" alt="next"
        src="ressources/suivant.png">
                     </span>
-
-
                 </div>
             </li>
-
         </ul>
         <script src="P6_03_javascript.js"></script>
 </body>

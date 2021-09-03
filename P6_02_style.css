@@ -1,6 +1,4 @@
-header
-
-{
+header {
     color: white;
     background: #577781;
     display:flex;
@@ -10,45 +8,29 @@ header
     align-items: center;
     font-size: xx-large;
     font-family: Arial;
-
 }
 
-p
-{
+#banner_title {
      position: absolute;
     left: 8%;
     bottom: 40%;
     font-size: 250%;
-    background-color: white;
-
 }
 
-#logo
+p {
+    font-size: 150%;
+}
 
-{
+#logo {
     position: absolute;
     left: 3.5%;
 }
 
-.menu
-
-{
+.menu {
     padding: 1%;
 }
 
-ul
-
-{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-    text-align: center;
-}
-
-
-#bandeau
-
-{
+#banner {
      width: 95%;
      border: 7px solid black;
       display:flex;
@@ -58,9 +40,7 @@ ul
     margin: auto;
 }
 
-#img_bandeau
-
-{
+#img_banner {
     height: 5%;
     margin: 0;
     border: none;
@@ -69,9 +49,7 @@ ul
      align-items: center;
 }
 
-#play_button
-
-{
+#play_button {
     width: 15%;
     border: none;
     position: absolute;
@@ -79,29 +57,68 @@ ul
     bottom: 25%;
 }
 
-.previous
-{
+.previous, .next {
     width: 3%;
 }
 
-.next
-{
-    width: 3%;
-}
-
-.img_movie
-{
+.img_movie {
     border: 7px solid black;
     margin: 4px;
     width: 20%;
 	height: 200px;
 }
 
-#a5, #b5, #c5, #d5, #a6, #b6, #c6, #d6, #a7, #b7, #c7, #d7
-{
+#a5, #b5, #c5, #d5, #a6, #b6, #c6, #d6, #a7, #b7, #c7, #d7 {
     border: 7px solid black;
     margin: 4px;
     width: 20%;
 	height: 200px;
     display: none;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 18%;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  margin: 15%; /* 15% from the top and centered */
+  padding: 20%;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li {
+    list-style-type: none;
+}
+
+body {
+    text-align: center;
+    background-color: white;
 }
