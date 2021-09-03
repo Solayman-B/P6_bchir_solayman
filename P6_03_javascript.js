@@ -7,9 +7,20 @@ fetch(url).then(response => response.json()).then(json_response => {
     img_banner.src = json_response.results[0].image_url
     // ajouter le resume du film sous le bouton play
 
-    //img_banner_modal.src = json_response.results[0].image_url
-    title_banner_modal.textContent = json_response.results[0].title
+    banner_modal_img.src = json_response.results[0].image_url // ne marche pas
+    banner_modal_title.textContent = "Titre: " + json_response.results[0].title
+    banner_modal_category.textContent = "Catégorie: " + json_response.results[0].genres
+    banner_modal_date.textContent = "Date de sortie: " + json_response.results[0].date_published
+    banner_modal_rated.textContent = "Nombre de votes: " + json_response.results[0].votes
+    banner_modal_imbd.textContent = "Note imdb: " + json_response.results[0].imdb_score
+    banner_modal_director.textContent = "Réalisateur(s): " + json_response.results[0].directors
+    banner_modal_actors.textContent = "Liste des acteurs: " + json_response.results[0].actors
+    banner_modal_length.textContent = "Durée: " + json_response.results[0].duration // passer par la fiche détaillé du film grace à son id
+    banner_modal_country.textContent = "Pays: " + json_response.results[0].countries
+    banner_modal_box.textContent = "Résultats au box office: " + json_response.results[0].worldwide_gross_income
+    banner_modal_summary.textContent = "Résumé: " + json_response.results[0].long_description
 
+// worldwide_gross_income = box office
 
     a1.src = json_response.results[1].image_url
     a2.src = json_response.results[2].image_url
@@ -89,7 +100,6 @@ document.getElementById(stop).style.display = "initial";
 function previous(x) {
 
     if (i >= 1) {
-
         toggle_display(x, i)
         i--;
     }
@@ -117,13 +127,13 @@ document.getElementById("next_d").addEventListener("click", () => next(d));
 
 
 // Get the modal
-var modal = document.getElementById("banner_modal");
+let modal = document.getElementById("banner_modal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("play_button");
+let btn = document.getElementById("play_button");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -137,7 +147,7 @@ span.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 }
