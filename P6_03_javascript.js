@@ -1,4 +1,26 @@
 // fetch
+let list_url = ["http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=", "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Action&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=", "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Drama&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=", "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Family&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="];
+let list_url_nb = [0, 1, 2, 3, 4, 0, 1, 2]
+let list_url_nb_a = {
+    l: 0,
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 0,
+    6: 1,
+    7: 2
+};
+let list_url_nb_b = {
+    1: 0,
+    2: 1,
+    3: 2,
+    4: 3,
+    5: 4,
+    6: 0,
+    7: 1
+};
+
 /*let url = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
 const url2 = url + "&page=2"
 
@@ -34,23 +56,20 @@ fetch(url).then(response => response.json()).then(json_response => {
 })
 
 */
-async function find_movie(url) {
+async function find_movie_url_banner(url) {
     let response = await fetch(url);
     let data = await response.json();
-    find_info(data.results[0].url)
+    find_movie_info(data.results[0].url)
 }
 
-async function find_movie_1(url) {
+async function find_movie_url(url, i) {
     let response = await fetch(url);
     let data = await response.json();
-    for (let i = 1; i < 5; i++) {
-        find_info(data.results[i].url)
-        //console.log(data.results[i].url)
-    }
+    find_movie_info(data.results[i].url)
 }
 
 
-async  function find_info(url) {
+async  function find_movie_info(url) {
        let response = await fetch(url);
     let data = await response.json();
     //getelementby id
@@ -68,7 +87,47 @@ async  function find_info(url) {
    modal_summary.textContent = "Résumé: " + data.long_description
        }
 
-find_movie("http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=")
+       function find_movie_id(id) {
+    if (id[0] ==="p") {
+        let url = list_url[0]
+        find_movie_url(url, list_url_nb[0])
+    }
+
+    else if (id[0] ==="a"){
+        if (id[1] > 4){
+            var url = list_url[0] + "&page=2"
+        } else {
+            var url = list_url[0]
+        }
+        find_movie_url(url, list_url_nb[id[1]++])
+         }
+     else if (id[0] ==="b"){
+       if (id[1] > 5){
+            var url = list_url[1] + "&page=2"
+        } else {
+            var url = list_url[1]
+        }
+        find_movie_url(url, list_url_nb[id[1]])
+    }
+     else if (id[0] ==="c"){
+        if (id[1] > 5){
+            var url = list_url[2] + "&page=2"
+        } else {
+            var url = list_url[2]
+        }
+        find_movie_url(url, list_url_nb[id[1]])
+    }
+     else if (id[0] ==="d"){
+        if (id[1] > 5){
+            var url = list_url[3] + "&page=2"
+        } else {
+            var url = list_url[3]
+        }
+        find_movie_url(url, list_url_nb[id[1]])
+    }
+       }
+
+//find_movie_url_banner("http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=")
 
 /*fetch(url2).then(response => response.json()).then(json_response => {
     a5.src = json_response.results[0].image_url
@@ -189,25 +248,17 @@ let btn = document.getElementsByClassName("button");
 let span = document.getElementById("close");
 
 // When the user clicks on the button, open the modal              //modifier les données à l'intérieur de la modal
-function modal_display() {
+function modal_display(event) {
+    find_movie_id(event.srcElement.id)
     modal.style.display = "block";
 }
 for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', modal_display);
 }
 
-/*btn[0].onclick = function(event) {
-  console.log(event.srcElement.id)
-  console.log(event)
-  modal.style.display = "block";
-}
-
- */
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function(event) {
-  console.log(event.srcElement.id)
-  console.log(event)
   modal.style.display = "none";
 }
 
