@@ -13,53 +13,55 @@
 <body>
     <section id="banner">
         <p id="banner_title">Titre du film</p>
-            <input type="image" id="play_button" alt="play"
+            <input type="image" id="play_button" class="button" alt="play"
                    src="ressources/play_button.png">
             <img id="img_banner" src="ressources/film.jpg/">
     </section>
-    <section id="banner_modal" class="modal">
+    <section id="modal_container">
         <ul class="modal_content">
-            <li class="close">&times;
+            <li >
+                <span id="close">&times
+                </span>
             </li>
-            <li id="banner_modal_img">
-                L’image de la pochette du film
+            <li> <img id="modal_img" class="modal_img">
             </li>
-            <li id="banner_modal_title">
+            <li id="modal_title">
                 Le Titre du film
             </li>
-            <li id="banner_modal_category">
+            <li id="modal_category">
                 Le genre complet du film
             </li>
-            <li id="banner_modal_date">
+            <li id="modal_date">
                Sa date de sortie
             </li>
-            <li id="banner_modal_rated">
+            <li id="modal_rated">
                Son Rated
             </li>
-            <li id="banner_modal_imbd">
+            <li id="modal_imbd">
                Son score Imdb
             </li>
-            <li id="banner_modal_director">
+            <li id="modal_director">
                Son réalisateur
             </li>
-            <li id="banner_modal_actors">
+            <li id="modal_actors">
                 La liste des acteurs
             </li>
-            <li id="banner_modal_length">
+            <li id="modal_length">
             Sa durée
             </li>
-            <li id="banner_modal_country">
+            <li id="modal_country">
             Le pays d’origine
             </li>
-            <li id="banner_modal_box">
+            <li id="modal_box">
             Le résultat au Box Office
             </li>
-            <li id="banner_modal_summary">
+            <li id="modal_summary">
             Le résumé du film
             </li>
          </ul>
 
 </section>
+
             <h1> Films les mieux notés </h1>
                 <div>
                         <span id="previous_a">
@@ -67,8 +69,9 @@
        src="ressources/precedent.png">
                     </span>
                     <span>
-                          <img id="a1" class="img_movie" src="ressources/1.jpg/">
-                          <img id="a2" class="img_movie" src="ressources/2.jpg/">
+                        <input type="image" id="a1" class="button" alt="a1"
+                   src="ressources/1.jpg/">
+                          <img id="a2" class="img_movie" class="button" src="ressources/2.jpg/">
                           <img id="a3" class="img_movie" src="ressources/3.jpg/">
                           <img id="a4" class="img_movie" src="ressources/4.jpg/">
                           <img id="a5" class ="hide" src="ressources/5.jpg/">
@@ -139,6 +142,7 @@
                              <input type="image" class="next" alt="next"
        src="ressources/suivant.png">
                     </span>
+
                 </div>
         <script src="P6_03_javascript.js"></script>
 </body>
