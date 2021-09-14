@@ -6,10 +6,10 @@ let list_url_nb = [0, 1, 2, 3, 4, 0, 1, 2]
 
 // extract the url of the movie
 async function find_movie_url_modal(url, i) {
-    let response = await fetch(url);
-    let data = await response.json();
-    find_movie_info(data.results[i].url)
-    }
+  let response = await fetch(url);
+  let data = await response.json();
+  find_movie_info(data.results[i].url)
+}
 
 // get the title and the description of the banner movie and get all the images of the movies in the carousels
 async function get_carousel_images(url, id, i) {
@@ -24,83 +24,80 @@ async function get_carousel_images(url, id, i) {
     } else if (id === "a7") {
         a5.src = data.results[0].image_url
         document.getElementById(id).src = data.results[i].image_url
-    } else {
-    document.getElementById(id).src = data.results[i].image_url
-    }
+      } else {
+        document.getElementById(id).src = data.results[i].image_url
+      }
     }
 
 
 // extract all the informations of the movie
 async  function find_movie_info(url) {
-       let response = await fetch(url);
-    let data = await response.json();
-   modal_img.src = data.image_url
-   modal_title.textContent = "Titre: " + data.title
-   modal_category.textContent = "Catégorie: " + data.genres
-   modal_date.textContent = "Date de sortie: " + data.date_published
-   modal_rated.textContent = "Nombre de votes: " + data.votes
-   modal_imbd.textContent = "Note imdb: " + data.imdb_score
-   modal_director.textContent = "Réalisateur(s): " + data.directors
-   modal_actors.textContent = "Liste des acteurs: " + data.actors
-   modal_length.textContent = "Durée: " + data.duration + " minutes"
-   modal_country.textContent = "Pays: " + data.countries
-   modal_box.textContent = "Résultats au box office: " + data.worldwide_gross_income
-   modal_summary.textContent = "Résumé: " + data.long_description
-       }
+  let response = await fetch(url);
+  let data = await response.json();
+  modal_img.src = data.image_url
+  modal_title.textContent = "Titre: " + data.title
+  modal_category.textContent = "Catégorie: " + data.genres
+  modal_date.textContent = "Date de sortie: " + data.date_published
+  modal_rated.textContent = "Nombre de votes: " + data.votes
+  modal_imbd.textContent = "Note imdb: " + data.imdb_score
+  modal_director.textContent = "Réalisateur(s): " + data.directors
+  modal_actors.textContent = "Liste des acteurs: " + data.actors
+  modal_length.textContent = "Durée: " + data.duration + " minutes"
+  modal_country.textContent = "Pays: " + data.countries
+  modal_box.textContent = "Résultats au box office: " + data.worldwide_gross_income
+  modal_summary.textContent = "Résumé: " + data.long_description
+}
 
-   // get the right category url with the rights movies
-  let abcd = ["a", "b", "c", "d"];
-  abcd.forEach((letter) => {
-      for (let i = 0; i < 8; i++) {
-        let url_img = list_url[abcd.indexOf(letter)];
-      let id = letter + i
-          if (i > 5){
-              url_img = url_img + "&page=2"
-          }
-      get_carousel_images(url_img, id, list_url_nb[i])
-          }
-  })
+// get the right category url with the rights movies
+let abcd = ["a", "b", "c", "d"];
+abcd.forEach((letter) => {
+for (let i = 0; i < 8; i++) {
+  let url_img = list_url[abcd.indexOf(letter)];
+  let id = letter + i
+  if (i > 5){
+    url_img = url_img + "&page=2"
+  }
+  get_carousel_images(url_img, id, list_url_nb[i])
+}
+})
 
-        // get the url of the category of the movie the user clicked on
-       function find_movie_id(id) {
-    if (id[0] ==="p") {
-        let url = list_url[0]
-        find_movie_url_modal(url, list_url_nb[0])
-    }
-
-    else if (id[0] ==="a"){
-        if (id[1] > 4){
-            var url_a = list_url[0] + "&page=2"
-        } else {
-            var url_a = list_url[0]
+// get the url of the category of the movie the user clicked on
+function find_movie_id(id) {
+  if (id[0] ==="p") {
+    let url = list_url[0]
+    find_movie_url_modal(url, list_url_nb[0])
+  } else if (id[0] ==="a"){
+      let url = ""
+      if (id[1] > 4){
+        url = list_url[0] + "&page=2"
+      } else {
+          url = list_url[0]
         }
-        find_movie_url_modal(url_a, list_url_nb[id[1]++])
-         }
-     else if (id[0] ==="b"){
-       if (id[1] > 5){
-            var url_b = list_url[1] + "&page=2"
-        } else {
-            var url_b = list_url[1]
-        }
-        find_movie_url_modal(url_b, list_url_nb[id[1]])
-    }
-     else if (id[0] ==="c"){
+        find_movie_url_modal(url, list_url_nb[id[1]++])
+    } else if (id[0] ==="b") {
         if (id[1] > 5){
-            var url_c = list_url[2] + "&page=2"
+          url = list_url[1] + "&page=2"
         } else {
-            var url_c = list_url[2]
+            url = list_url[1]
+          }
+          find_movie_url_modal(url, list_url_nb[id[1]])
+      } else if (id[0] ==="c"){
+          if (id[1] > 5){
+            url = list_url[2] + "&page=2"
+          } else {
+              url = list_url[2]
+            }
+          find_movie_url_modal(url, list_url_nb[id[1]])
         }
-        find_movie_url_modal(url_c, list_url_nb[id[1]])
-    }
-     else if (id[0] ==="d"){
-        if (id[1] > 5){
-            var url_d = list_url[3] + "&page=2"
-        } else {
-            var url_d = list_url[3]
+        else if (id[0] ==="d"){
+          if (id[1] > 5){
+            url = list_url[3] + "&page=2"
+          } else {
+              url = list_url[3]
+            }
+            find_movie_url_modal(url, list_url_nb[id[1]])
         }
-        find_movie_url_modal(url_d, list_url_nb[id[1]])
-    }
-       }
+}
 
 // carousel
 var a = 0
@@ -111,40 +108,39 @@ let i = 0
 
 //invert the visibility of the movie picture to scroll when the user click on an arrow
 function toggle_display(value) {
-    let start = value + window[value]
-    let stop = value + (window[value] + 4)
-    if (document.getElementById(start).style.display === "none") {
-        document.getElementById(start).style.display = "initial";
-        document.getElementById(stop).style.display = "none";
-    } else {
-document.getElementById(start).style.display = "none";
-document.getElementById(stop).style.display = "initial";
+  let start = value + window[value]
+  let stop = value + (window[value] + 4)
+  if (document.getElementById(start).style.display === "none") {
+    document.getElementById(start).style.display = "initial";
+    document.getElementById(stop).style.display = "none";
+  } else {
+      document.getElementById(start).style.display = "none";
+      document.getElementById(stop).style.display = "initial";
     }
 }
 
 // scroll the movies to the left
 function previous(value) {
-    if (i === 2){
-         window[value]++;
-    }
-    i = 1;
-    if (window[value] >= 1) {
-        window[value]--;
-        toggle_display(value)
-    }
+  if (i === 2){
+    window[value]++;
+  }
+  i = 1;
+  if (window[value] >= 1) {
+    window[value]--;
+    toggle_display(value)
+  }
 }
 
 // scroll the movies to the right
 function next(value) {
-    if (i === 1){
-         window[value]--;
-    }
-    i = 2;
-    if ( window[value] < 3) {
-         window[value]++;
-        toggle_display(value)
-    }
-
+  if (i === 1){
+    window[value]--;
+  }
+  i = 2;
+  if (window[value] < 3) {
+    window[value]++;
+    toggle_display(value)
+  }
 }
 
 document.getElementById("previous_a").addEventListener("click", () => previous("a"));
@@ -159,7 +155,6 @@ document.getElementById("next_d").addEventListener("click", () => next("d"));
 
 // get the modal
 let modal = document.getElementById("modal_container");
-
 
 // get the button that opens the modal
 let btn = document.getElementsByClassName("button");
