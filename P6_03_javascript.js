@@ -1,14 +1,18 @@
-// fetch
+// list of the movies categories urls
 let list_url = ["http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=", "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Action&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=", "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Drama&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=", "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Family&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="];
+
+// list of the indices of a movie in a page
 let list_url_nb = [0, 1, 2, 3, 4, 0, 1, 2]
 
+// extract the url of the movie
 async function find_movie_url_modal(url, i) {
     let response = await fetch(url);
     let data = await response.json();
     find_movie_info(data.results[i].url)
     }
 
-async function find_movie_url_carousel(url, id, i) {
+// get the title and the description of the banner movie and get all the images of the movies in the carousels
+async function get_carousel_images(url, id, i) {
     let response = await fetch(url);
     let data = await response.json();
     if (id === "a5"){
@@ -26,7 +30,7 @@ async function find_movie_url_carousel(url, id, i) {
     }
 
 
-
+// extract all the informations of the movie
 async  function find_movie_info(url) {
        let response = await fetch(url);
     let data = await response.json();
@@ -44,7 +48,7 @@ async  function find_movie_info(url) {
    modal_summary.textContent = "Résumé: " + data.long_description
        }
 
-       //get the movies img
+   // get the right category url with the rights movies
   let abcd = ["a", "b", "c", "d"];
   abcd.forEach((letter) => {
       for (let i = 0; i < 8; i++) {
@@ -53,10 +57,11 @@ async  function find_movie_info(url) {
           if (i > 5){
               url_img = url_img + "&page=2"
           }
-      find_movie_url_carousel(url_img, id, list_url_nb[i])
+      get_carousel_images(url_img, id, list_url_nb[i])
           }
   })
 
+        // get the url of the category of the movie the user clicked on
        function find_movie_id(id) {
     if (id[0] ==="p") {
         let url = list_url[0]
@@ -104,6 +109,7 @@ var c = 0
 var d = 0
 let i = 0
 
+//invert the visibility of the movie picture to scroll when the user click on an arrow
 function toggle_display(value) {
     let start = value + window[value]
     let stop = value + (window[value] + 4)
@@ -116,6 +122,7 @@ document.getElementById(stop).style.display = "initial";
     }
 }
 
+// scroll the movies to the left
 function previous(value) {
     if (i === 2){
          window[value]++;
@@ -126,6 +133,8 @@ function previous(value) {
         toggle_display(value)
     }
 }
+
+// scroll the movies to the right
 function next(value) {
     if (i === 1){
          window[value]--;
@@ -148,17 +157,17 @@ document.getElementById("previous_d").addEventListener("click", () => previous("
 document.getElementById("next_d").addEventListener("click", () => next("d"));
 
 
-// Get the modal
+// get the modal
 let modal = document.getElementById("modal_container");
 
 
-// Get the button that opens the modal
+// get the button that opens the modal
 let btn = document.getElementsByClassName("button");
 
-// Get the <span> element that closes the modal
+// get the 'x' element that closes the modal
 let span = document.getElementById("close");
 
-// When the user clicks on the button, open the modal
+// display the modal when the user clicks on a movie
 function modal_display(event) {
     find_movie_id(event.srcElement.id)
     modal.style.display = "block";
@@ -168,12 +177,12 @@ for (let i = 0; i < btn.length; i++) {
 }
 
 
-// When the user clicks on <span> (x), close the modal
+// close the modal when the user clicks on the 'x'
 span.onclick = function(event) {
   modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
+// close the modal when the user clicks outside the modal
  window.onclick = function(event) {
    if (event.target === modal) {
      modal.style.display = "none";
