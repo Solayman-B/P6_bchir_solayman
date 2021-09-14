@@ -10,15 +10,37 @@ header {
     font-family: Arial, serif;
 }
 
-#banner_title {
-     position: absolute;
-    left: 8%;
-    bottom: 40%;
-    font-size: 250%;
+#banner {
+     width: 95%;
+     border: 7px solid black;
+      display:flex;
+    margin: auto;
+    justify-content: left;
 }
 
-p {
-    font-size: 150%;
+#img_banner {
+    margin: 0;
+    border: none;
+    position: relative;
+    right: 12%;
+}
+
+
+#banner_title {
+    font-size: 250%;
+    position: relative;
+    right: 27%;
+}
+#play_button {
+    width: 25%;
+    border: none;
+    position: relative;
+    right: 27%;
+}
+
+#banner_description{
+    width: 40%;
+    position: relative;
 }
 
 #logo {
@@ -30,33 +52,7 @@ p {
     padding: 1%;
 }
 
-#banner {
-     width: 95%;
-     border: 7px solid black;
-      display:flex;
-    justify-content:center;
-     align-items: center;
-    position: relative;
-    margin: auto;
-}
 
-#img_banner {
-    height: 5%;
-    margin: 0;
-    border: none;
-    display:flex;
-    justify-content:center;
-     align-items: center;
-    list-style-type: none;
-}
-
-#play_button {
-    width: 15%;
-    border: none;
-    position: absolute;
-    left: 7%;
-    bottom: 25%;
-}
 
 .previous, .next {
     width: 3%;
@@ -120,4 +116,10 @@ body {
 
 .modal_img{
     margin-top: 1%;
+}
+
+
+
+ul{
+    list-style-type: none;
 }

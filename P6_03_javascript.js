@@ -11,7 +11,18 @@ async function find_movie_url_modal(url, i) {
 async function find_movie_url_carousel(url, id, i) {
     let response = await fetch(url);
     let data = await response.json();
+    if (id === "a5"){
+        img_banner.src = data.results[i].image_url
+        let banner_response = await fetch(data.results[i].url);
+        let banner_data = await banner_response.json()
+        banner_title.textContent = banner_data.title;
+        banner_description.textContent = "Résumé: " + banner_data.description;
+    } else if (id === "a7") {
+        a5.src = data.results[0].image_url
+        document.getElementById(id).src = data.results[i].image_url
+    } else {
     document.getElementById(id).src = data.results[i].image_url
+    }
     }
 
 
@@ -39,7 +50,7 @@ async  function find_movie_info(url) {
       for (let i = 0; i < 8; i++) {
         let url_img = list_url[abcd.indexOf(letter)];
       let id = letter + i
-          if (i > 4){
+          if (i > 5){
               url_img = url_img + "&page=2"
           }
       find_movie_url_carousel(url_img, id, list_url_nb[i])
